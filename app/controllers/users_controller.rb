@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def index
+    user = User.find(params)
+    render json: user
   end
 
   def show
@@ -15,6 +17,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    user = User.find(params)
+    user.update(params)
+    render json: user
   end
 
   def destroy
